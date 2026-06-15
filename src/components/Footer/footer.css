@@ -1,0 +1,32 @@
+.footer {
+  background-color: #fff9fc;
+  border-top: 2px solid #fce7f3;
+  padding: 2rem 1rem 1rem;
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  color: #4b5563;
+  margin-top: auto; /* Empuja el footer hacia abajo si el main es chico */
+}
+
+.footer-content h3 {
+  font-family: 'Fredoka', sans-serif;
+  color: #db2777;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-content p {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.footer-bottom {
+  border-top: 1px solid #fdf2f8;
+  padding-top: 1rem;
+}
+
+.footer-copyright {
+  font-size: 0.85rem;
+  color: #9ca3af;
+}

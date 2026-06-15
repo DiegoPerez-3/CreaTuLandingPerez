@@ -1,0 +1,15 @@
+.itemlist {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0;
+  list-style: none; /* Por si el componente superior o inferior usa li */
+}
+
+@media (max-width: 640px) {
+  .itemlist {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}

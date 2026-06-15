@@ -1,0 +1,77 @@
+.item-count-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 200px;
+  margin-top: 1.5rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #faf5ff;
+  border: 1.5px solid #f3e8ff;
+  border-radius: 25px;
+  padding: 0.25rem;
+}
+
+.btn-count {
+  background-color: #ffffff;
+  border: none;
+  color: #7c3aed;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(124, 58, 237, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.btn-count:hover:not(:disabled) {
+  background-color: #e9d5ff;
+  color: #5b21b6;
+}
+
+.btn-count:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.count-display {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #4b5563;
+  width: 40px;
+  text-align: center;
+}
+
+.btn-add-to-cart {
+  background-color: #db2777; /* Rosa llamativo */
+  color: #ffffff;
+  border: none;
+  border-radius: 25px;
+  padding: 0.75rem 1.5rem;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(219, 39, 119, 0.2);
+}
+
+.btn-add-to-cart:hover {
+  background-color: #be185d;
+  box-shadow: 0 6px 14px rgba(219, 39, 119, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-add-to-cart:active {
+  transform: translateY(0);
+}

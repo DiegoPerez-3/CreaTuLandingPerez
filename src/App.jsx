@@ -1,16 +1,11 @@
-import React from 'react';
-import NavBar from './components/NavBar';
-import ItemListContainer from './components/ItemListContainer';
 import './App.css';
+import { RouterProvider } from 'react-router';
+import { router } from './router';
 
+// Componente principal que envuelve toda la app con el RouterProvider
 function App() {
   return (
-    <>
-      <NavBar />
-      <main className="main-content">
-        <ItemListContainer greeting="Bienvenido a PixelStore" />
-      </main>
-    </>
+    <RouterProvider router={router} />
   );
 }
 
