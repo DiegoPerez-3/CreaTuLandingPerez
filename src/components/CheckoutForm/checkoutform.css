@@ -1,0 +1,71 @@
+.checkoutform {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label-checkoutform {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  color: #4b5563;
+  font-size: 0.95rem;
+}
+
+.input-checkoutform {
+  font-family: 'Quicksand', sans-serif;
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid #fae8ff;
+  background-color: #fdfafc;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: #1f2937;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.input-checkoutform:focus {
+  outline: none;
+  border-color: #f0abfc;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(240, 171, 252, 0.15);
+}
+
+.input-checkoutform::placeholder {
+  color: #9ca3af;
+}
+
+/* Remueve flechas del input de tipo number */
+.input-checkoutform[type=number]::-webkit-inner-spin-button, 
+.input-checkoutform[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.button-to-buy-checkoutform {
+  width: 100%;
+  background-color: #db2777;
+  color: white;
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: 25px;
+  font-family: 'Fredoka', 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(219, 39, 119, 0.2);
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.button-to-buy-checkoutform:hover {
+  background-color: #be185d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(219, 39, 119, 0.3);
+}

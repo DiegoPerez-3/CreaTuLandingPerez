@@ -1,11 +1,11 @@
-import { getProducts } from "../../data/products.js";
+import { getProductsDB } from "../../services/firestore.js";
 import { useState, useEffect } from "react";
 import ItemList from "../ItemList/ItemList";
 import Loading from "../Loading/Loading";
 import { useParams, useNavigate } from "react-router";
 import "./itemlistcontainer.css";
 
-// Componente contenedor que maneja el estado de los peluches y la lógica de filtrado
+// componente contenedor que maneja el estado de los peluches desde firestore
 const ItemListContainer = ({ saludo = "Bienvenidos", greeting }) => {
   const { category } = useParams();
   const navigate = useNavigate();
@@ -14,30 +14,31 @@ const ItemListContainer = ({ saludo = "Bienvenidos", greeting }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Usamos el prop saludo o greeting por si acaso
+  // usamos el prop saludo o greeting por las dudas
   const displaySaludo = saludo || greeting;
 
   useEffect(() => {
-    setIsLoading(true);
+    let active = true;
 
-    getProducts()
+    // traemos los productos directamente de la base de datos
+    getProductsDB(category)
       .then((data) => {
-        if (category) {
-          // Filtramos los productos según la categoría de la URL
-          const filtered = data.filter((p) => p.category === category);
-          setProducts(filtered);
-        } else {
-          // Si no hay categoría, cargamos todo el catálogo
-          setProducts(data);
-        }
+        if (active) setProducts(data);
       })
       .catch((err) => {
-        setError(err);
+        if (active) setError(err.message || err);
       })
       .finally(() => {
-        setIsLoading(false);
+        if (active) setIsLoading(false);
       });
+
+    return () => {
+      active = false;
+      setIsLoading(true);
+    };
   }, [category]);
+
+
 
   if (isLoading) {
     return <Loading />;
@@ -47,7 +48,7 @@ const ItemListContainer = ({ saludo = "Bienvenidos", greeting }) => {
     return <div className="error-container">Ups: {error}</div>;
   }
 
-  // Capitaliza la primera letra de la categoría para mostrarla más linda
+  // capitaliza la primera letra de la categoria para que quede mas lindo
   const formatCategory = (cat) => {
     return cat.charAt(0).toUpperCase() + cat.slice(1);
   };

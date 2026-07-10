@@ -1,7 +1,7 @@
 import Item from "../Item/Item";
 import "./itemlist.css";
 
-// Componente encargado de hacer el map de los peluches y mostrarlos en grilla
+// componente encargado de mapear la lista de peluches
 const ItemList = ({ products }) => {
   return (
     <div className="itemlist">

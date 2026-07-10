@@ -1,7 +1,7 @@
 import { ClipLoader } from "react-spinners";
 import "./loading.css";
 
-// Componente simple para mostrar un spinner mientras se cargan los productos
+// spinner de carga para cuando traemos datos de firestore
 const Loading = () => {
   return (
     <div className="loading-container">

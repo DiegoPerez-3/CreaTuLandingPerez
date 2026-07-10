@@ -1,6 +1,6 @@
 import "./footer.css";
 
-// Componente Footer para la parte inferior de la tienda
+// pie de pagina de la tienda
 const Footer = () => {
   return (
     <footer className="footer">

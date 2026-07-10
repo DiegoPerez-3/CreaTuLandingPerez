@@ -1,6 +1,6 @@
 import ItemListContainer from "../components/ItemListContainer/ItemListContainer";
 
-// Página principal de la tienda
+// pagina de inicio de la tienda
 const HomePage = () => {
   return (
     <div>

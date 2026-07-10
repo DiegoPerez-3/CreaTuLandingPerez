@@ -1,0 +1,90 @@
+.checkout {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: white;
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 12px 30px rgba(219, 39, 119, 0.04);
+  border: 1px solid #fae8ff;
+}
+
+.checkout-title {
+  font-family: 'Fredoka', 'Quicksand', sans-serif;
+  color: #831843;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.order-success-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  animation: scaleUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.success-emoji {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.success-title {
+  font-family: 'Fredoka', 'Quicksand', sans-serif;
+  color: #059669;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.success-text {
+  font-family: 'Quicksand', sans-serif;
+  color: #4b5563;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.order-id-box {
+  background-color: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 16px;
+  padding: 1.5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.order-id-label {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
+  color: #065f46;
+  font-size: 0.95rem;
+}
+
+.order-id-value {
+  font-family: 'Fredoka', monospace;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #047857;
+  letter-spacing: 1px;
+}
+
+.success-hint {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

@@ -3,7 +3,7 @@ import CartWidget from "../CartWidget/CartWidget";
 import { Link, NavLink } from "react-router";
 import "./navbar.css";
 
-// Componente NavBar que contiene el logo, categorías y el widget del carrito
+// navbar de la app con el logo, links de las categorias y el cart widget
 const NavBar = () => {
   const categories = [
     {

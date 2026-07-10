@@ -1,6 +1,6 @@
 import ItemListContainer from "../components/ItemListContainer/ItemListContainer";
 
-// Página de productos filtrados por categoría
+// pagina de productos filtrados por categoria
 const CategoryPage = () => {
   return (
     <div>

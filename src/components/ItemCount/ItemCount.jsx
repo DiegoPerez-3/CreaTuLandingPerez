@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./itemcount.css";
 
-// Componente para seleccionar la cantidad de unidades y agregarlas (lógica visual)
+// componente contador para sumar y restar cantidad de peluches a llevar
 const ItemCount = ({ stock = 5, initial = 1, onAdd }) => {
   const [count, setCount] = useState(initial);
 

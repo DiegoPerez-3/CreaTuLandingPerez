@@ -1,7 +1,7 @@
 import "./item.css";
 import { Link } from "react-router";
 
-// Componente de presentación para cada tarjeta de peluche en el listado
+// tarjeta de presentacion para cada peluche individual
 const Item = ({ product }) => {
   return (
     <li className="item">

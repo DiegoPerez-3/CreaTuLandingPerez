@@ -1,6 +1,6 @@
 import ItemDetailContainer from "../components/ItemDetailContainer/ItemDetailContainer";
 
-// Página para mostrar el detalle de un peluche en específico
+// pagina del detalle de un peluche especifico
 const ProductDetailPage = () => {
   return (
     <div>

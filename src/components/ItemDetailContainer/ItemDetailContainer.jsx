@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { getProductById } from "../../data/products.js";
+import { getProductByIdDB } from "../../services/firestore.js";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import Loading from "../Loading/Loading";
 import { useParams } from "react-router";
 
-// Componente contenedor que maneja el estado de la carga de un peluche individual
+// componente contenedor que maneja el estado de la carga de un peluche individual desde firestore
 const ItemDetailContainer = () => {
   const { productId } = useParams();
 
@@ -13,18 +13,24 @@ const ItemDetailContainer = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setIsLoading(true);
-    // Buscamos el producto según el id de la URL
-    getProductById(productId)
+    let active = true;
+
+    // buscamos el producto segun el id de la URL en firestore
+    getProductByIdDB(productId)
       .then((data) => {
-        setProduct(data);
+        if (active) setProduct(data);
       })
       .catch((err) => {
-        setError(err);
+        if (active) setError(err.message || err);
       })
       .finally(() => {
-        setIsLoading(false);
+        if (active) setIsLoading(false);
       });
+
+    return () => {
+      active = false;
+      setIsLoading(true);
+    };
   }, [productId]); // dependencias recomendadas: el productId de la URL
 
   if (isLoading) {
@@ -39,3 +45,4 @@ const ItemDetailContainer = () => {
 };
 
 export default ItemDetailContainer;
+

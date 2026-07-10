@@ -1,14 +1,25 @@
+import { useContext } from "react";
+import { CartContext } from "../../context/cartContext.js";
+import { Link } from "react-router";
+import { toast } from "react-toastify";
 import ItemCount from "../ItemCount/ItemCount";
 import "./itemdetail.css";
 
-// Componente de presentación que muestra los detalles del peluche seleccionado
+// componente de presentacion que muestra el detalle de un peluche
 const ItemDetail = ({ product }) => {
-  // Manejador simple para simular agregar al carrito
+  const { addProductInCart, isInCart } = useContext(CartContext);
+
+  // manejador para agregar el peluche al carrito global
   const handleAdd = (quantity) => {
-    alert(`¡Agregaste ${quantity} unidad(es) de "${product.name}" al carrito! (Simulación)`);
+    const newProduct = { ...product, quantity };
+    addProductInCart(newProduct);
+    toast.success("¡Peluche agregado al carrito! 🧸");
   };
 
   if (!product) return null;
+
+  // evaluamos si el producto ya esta en el carrito
+  const productIsInCart = isInCart(product.id);
 
   return (
     <div className="itemdetail">
@@ -21,11 +32,22 @@ const ItemDetail = ({ product }) => {
         <p className="description-itemdetail">{product.description}</p>
         <p className="price-itemdetail">Precio: ${product.price}</p>
         
-        {/* Incluimos el ItemCount pasando el stock disponible */}
-        <ItemCount stock={product.stock} initial={1} onAdd={handleAdd} />
+        {/* renderizado condicional segun stock y si ya esta en el carrito */}
+        {
+          product.stock < 1 ? (
+            <p className="no-stock-itemdetail">Producto sin stock momentáneamente 😢</p>
+          ) : productIsInCart === true ? (
+            <Link to="/cart" className="button-to-buy">
+              Terminar mi compra 🛒
+            </Link>
+          ) : (
+            <ItemCount stock={product.stock} initial={1} onAdd={handleAdd} />
+          )
+        }
       </div>
     </div>
   );
 };
 
 export default ItemDetail;
+

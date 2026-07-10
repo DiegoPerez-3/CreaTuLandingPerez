@@ -1,14 +1,23 @@
+import { useContext } from "react";
+import { CartContext } from "../../context/cartContext.js";
+import { Link } from "react-router";
 import { FaCartShopping } from "react-icons/fa6";
 import "./cartwidget.css";
 
-// Widget para el carrito de compras en el NavBar
+// widget para el carrito de compras en el navbar
 const CartWidget = () => {
+  const { totalQuantity } = useContext(CartContext);
+  const total = totalQuantity();
+
   return (
-    <div className="cartwidget">
+    <Link to="/cart" className="cartwidget">
       <FaCartShopping size={26} className="cart-icon-fa" />
-      <span className="notification-cartwidget">3</span>
-    </div>
+      {
+        total > 0 && <span className="notification-cartwidget">{total}</span>
+      }
+    </Link>
   );
 };
 
 export default CartWidget;
+

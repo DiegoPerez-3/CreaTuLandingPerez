@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 
-// Página de error para rutas no válidas
+// pagina de error 404 por si se mete una ruta rota
 const ErrorPage = ({ statusCode = 404, message = "Lo sentimos, el peluche o la página que buscas no existe." }) => {
   return (
     <div className="error-page" style={{ textAlign: 'center', padding: '50px 20px' }}>
