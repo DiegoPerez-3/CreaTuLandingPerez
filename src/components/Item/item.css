@@ -93,3 +93,30 @@
     transform: translateY(0);
   }
 }
+
+.item-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #db2777;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.8rem;
+  border-radius: 20px;
+  z-index: 5;
+  text-transform: capitalize;
+  border: 1px solid #fbcfe8;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 10px rgba(219, 39, 119, 0.06);
+  transition: all 0.3s ease;
+}
+
+.item:hover .item-badge {
+  background-color: #db2777;
+  color: white;
+  border-color: #db2777;
+  box-shadow: 0 4px 10px rgba(219, 39, 119, 0.2);
+}
+

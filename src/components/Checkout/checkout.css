@@ -1,79 +1,194 @@
 .checkout {
-  max-width: 600px;
-  margin: 2rem auto;
+  max-width: 1000px;
+  margin: 2.5rem auto;
   background: white;
-  border-radius: 24px;
-  padding: 2.5rem;
-  box-shadow: 0 12px 30px rgba(219, 39, 119, 0.04);
+  border-radius: 28px;
+  padding: 3rem;
+  box-shadow: 0 12px 35px rgba(219, 39, 119, 0.05);
   border: 1px solid #fae8ff;
 }
 
 .checkout-title {
   font-family: 'Fredoka', 'Quicksand', sans-serif;
   color: #831843;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   text-align: center;
+  font-size: 2.2rem;
 }
 
+/* layout de dos columnas */
+.checkout-container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3.5rem;
+}
+
+.checkout-form-column, .checkout-summary-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.column-subtitle {
+  font-family: 'Fredoka', 'Quicksand', sans-serif;
+  color: #831843;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #fdf2f8;
+  padding-bottom: 0.5rem;
+}
+
+/* resumen de compra */
+.summary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background-color: #fff9fc;
+  border-radius: 20px;
+  padding: 1.5rem;
+  border: 1px solid #fce7f3;
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.summary-item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  border-bottom: 1px solid #fae8ff;
+  padding-bottom: 0.8rem;
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.summary-item-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid #fae8ff;
+}
+
+.summary-item-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.summary-item-name {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  color: #374151;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.summary-item-qty {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.summary-item-price {
+  font-family: 'Fredoka', sans-serif;
+  color: #db2777;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0;
+  align-self: flex-end;
+}
+
+.summary-total {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: #fdf2f8;
+  border-radius: 16px;
+  border: 1px dashed #fbcfe8;
+}
+
+.summary-total p {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  color: #4b5563;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+
+.summary-total span {
+  font-family: 'Fredoka', sans-serif;
+  color: #db2777;
+  font-size: 1.6rem;
+}
+
+/* mensaje de éxito */
 .order-success-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 1rem;
-  padding: 1rem 0;
+  gap: 1.2rem;
+  padding: 2rem 0;
   animation: scaleUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .success-emoji {
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin: 0;
 }
 
 .success-title {
   font-family: 'Fredoka', 'Quicksand', sans-serif;
   color: #059669;
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin: 0;
 }
 
 .success-text {
   font-family: 'Quicksand', sans-serif;
   color: #4b5563;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   margin: 0;
 }
 
 .order-id-box {
   background-color: #ecfdf5;
   border: 1px solid #a7f3d0;
-  border-radius: 16px;
-  padding: 1.5rem;
+  border-radius: 18px;
+  padding: 1.8rem;
   width: 100%;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  margin: 1rem 0;
+  gap: 0.6rem;
+  margin: 1.5rem 0;
 }
 
 .order-id-label {
   font-family: 'Quicksand', sans-serif;
   font-weight: 600;
   color: #065f46;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .order-id-value {
   font-family: 'Fredoka', monospace;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #047857;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 }
 
 .success-hint {
   font-family: 'Quicksand', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: #6b7280;
   margin: 0;
 }
@@ -86,5 +201,17 @@
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout {
+    padding: 2rem;
+    margin: 1.5rem;
+  }
+  
+  .checkout-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 }

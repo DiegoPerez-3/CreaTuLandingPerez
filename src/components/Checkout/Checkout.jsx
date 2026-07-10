@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { CartContext } from "../../context/cartContext.js";
 import { createOrderWithStockUpdate } from "../../services/firestore.js";
 import { toast } from "react-toastify";
+import { Link } from "react-router";
 import CheckoutForm from "../CheckoutForm/CheckoutForm.jsx";
 import "./checkout.css";
 
@@ -44,16 +45,52 @@ const Checkout = () => {
     }
   };
 
+  // si el carrito esta vacio y no hay orden creada todavia, mostramos cartelito
+  if (cart.length === 0 && orderId === null) {
+    return (
+      <div className="checkout empty-checkout" style={{ textAlign: "center" }}>
+        <h1 className="checkout-title">Tu carrito está vacío 😢</h1>
+        <p style={{ fontFamily: "Quicksand", color: "#6b7280" }}>No podés completar la compra sin peluches en el carrito.</p>
+        <Link to="/" className="button-to-home" style={{ marginTop: "1.5rem", display: "inline-block" }}>
+          Volver al inicio 🧸
+        </Link>
+      </div>
+    );
+  }
+
   return (
     <div className="checkout">
       <h1 className="checkout-title">Completar tu Compra</h1>
       {
         orderId === null ? (
-          <CheckoutForm 
-            dataForm={dataForm}
-            handleChangeInput={handleChangeInput}
-            handleSubmitForm={handleSubmitForm}
-          />
+          <div className="checkout-container">
+            <div className="checkout-form-column">
+              <h2 className="column-subtitle">Tus Datos</h2>
+              <CheckoutForm 
+                dataForm={dataForm}
+                handleChangeInput={handleChangeInput}
+                handleSubmitForm={handleSubmitForm}
+              />
+            </div>
+            <div className="checkout-summary-column">
+              <h2 className="column-subtitle">Resumen del Pedido</h2>
+              <div className="summary-list">
+                {cart.map((item) => (
+                  <div key={item.id} className="summary-item">
+                    <img src={item.image} alt={item.name} className="summary-item-img" />
+                    <div className="summary-item-details">
+                      <p className="summary-item-name">{item.name}</p>
+                      <p className="summary-item-qty">Cantidad: {item.quantity}</p>
+                      <p className="summary-item-price">${item.price * item.quantity}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="summary-total">
+                <p>Total a pagar: <span>${totalPrice()}</span></p>
+              </div>
+            </div>
+          </div>
         ) : (
           <div className="order-success-container">
             <h2 className="success-emoji">🧸❤️</h2>
@@ -72,3 +109,4 @@ const Checkout = () => {
 };
 
 export default Checkout;
+

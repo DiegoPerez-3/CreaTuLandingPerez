@@ -6,6 +6,7 @@ const Item = ({ product }) => {
   return (
     <li className="item">
       <div className="img-item-container">
+        <span className="item-badge">{product.category}</span>
         <img className="img-item" src={product.image} alt={product.name} />
       </div>
 
